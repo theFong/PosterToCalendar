@@ -1,0 +1,269 @@
+{
+
+  "language": "en",
+
+  "textAngle": 0.0,
+
+  "orientation": "Up",
+
+  "regions": [
+
+    {
+
+      "boundingBox": "49,251,289,252",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "84,251,220,45",
+
+          "words": [
+
+            {
+
+              "boundingBox": "84,251,220,45",
+
+              "text": "COFFEE"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "49,309,289,45",
+
+          "words": [
+
+            {
+
+              "boundingBox": "49,309,289,45",
+
+              "text": "MORNING"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "96,368,193,11",
+
+          "words": [
+
+            {
+
+              "boundingBox": "96,368,9,11",
+
+              "text": "A"
+
+            },
+
+            {
+
+              "boundingBox": "115,368,113,11",
+
+              "text": "FUNDRAISING"
+
+            },
+
+            {
+
+              "boundingBox": "238,368,51,11",
+
+              "text": "EVENT"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "88,411,209,17",
+
+          "words": [
+
+            {
+
+              "boundingBox": "88,411,99,17",
+
+              "text": "06.23.18"
+
+            },
+
+            {
+
+              "boundingBox": "198,416,7,6",
+
+              "text": "•"
+
+            },
+
+            {
+
+              "boundingBox": "215,411,82,17",
+
+              "text": "7-11AM"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "100,437,187,13",
+
+          "words": [
+
+            {
+
+              "boundingBox": "100,437,33,13",
+
+              "text": "Cafe"
+
+            },
+
+            {
+
+              "boundingBox": "138,442,30,8",
+
+              "text": "area"
+
+            },
+
+            {
+
+              "boundingBox": "174,440,10,10",
+
+              "text": "in"
+
+            },
+
+            {
+
+              "boundingBox": "189,437,52,13",
+
+              "text": "Hanford"
+
+            },
+
+            {
+
+              "boundingBox": "247,438,40,12",
+
+              "text": "Street"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "137,455,112,14",
+
+          "words": [
+
+            {
+
+              "boundingBox": "137,456,54,13",
+
+              "text": "Toronto,"
+
+            },
+
+            {
+
+              "boundingBox": "196,455,53,13",
+
+              "text": "Canada"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "87,496,210,7",
+
+          "words": [
+
+            {
+
+              "boundingBox": "87,497,17,6",
+
+              "text": "ALL"
+
+            },
+
+            {
+
+              "boundingBox": "110,496,27,7",
+
+              "text": "PROC"
+
+            },
+
+            {
+
+              "boundingBox": "140,496,18,7",
+
+              "text": "EEO"
+
+            },
+
+            {
+
+              "boundingBox": "161,497,4,6",
+
+              "text": "s"
+
+            },
+
+            {
+
+              "boundingBox": "172,496,40,7",
+
+              "text": "BENEFIT"
+
+            },
+
+            {
+
+              "boundingBox": "219,496,31,7",
+
+              "text": "HEAR'"
+
+            },
+
+            {
+
+              "boundingBox": "256,496,41,7",
+
+              "text": "HEROES"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}

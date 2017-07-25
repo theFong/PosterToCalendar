@@ -1,6 +1,7 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
-var Sherlock = require('sherlockjs');
+var parse = require('./parse');
+var url = require('url');
 var app = express();
 var removeChars = ['"','='];
 var textInImage = "";
@@ -132,10 +133,10 @@ function imageToText (jsonString, res) {
     textInImage = textInImage.replace(/\s\s+/g, ' ');
     textInImage = toTitleCase(textInImage);
 
-    console.log(eventDate);
-    console.log(textInImage);
+    // console.log(eventDate);
+    // console.log(textInImage);
 
-    var result = parse(textInImage);
+    var result = parse.getEventData(textInImage);
     res.send(JSON.stringify(result));
 
      // response for API
@@ -151,24 +152,13 @@ function toTitleCase(str)
       });
 }
 
-function parse(text) {
-  var eventData = {};
-  //shelock
-  sherlockedText = Sherlock.parse(text)
-  eventData.title = sherlockedText.eventTitle
-  eventData.startDate = sherlockedText.startDate
-  eventData.endDate = sherlockedText.endDate
-  eventData.isAllDay = sherlockedText.isAllDay
-
-  //google api for location
-    // goog stuff
-
-  return eventData;
-}
-
 
 app.get('/Pic2Cal', function (req, res) {
 	contentRequest(res);
+})
+
+app.get('/eventParse', function(req, res) {
+  res.send(JSON.stringify(parse.getEventData(req.query.text)));
 })
 
 app.get('/Pic2Calendar', function (req, res) {

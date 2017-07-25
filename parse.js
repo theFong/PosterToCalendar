@@ -25,22 +25,37 @@ function sherlocker(text, eventData) {
 function getLocation(text){
 	//goog stuff
 
+
 // Google cloud settings
 // Run npm install --save @google-cloud/language
-var url = 'https://language.googleapis.com/v1/documents:analyzeEntities?key=' + key;
 
+const Language = require('@google-cloud/language');
 
-	var optionspost = {
-	    host : 'api.projectoxford.ai',
-	    path : '/vision/v1.0/ocr?language=en&detectOrientation=true',
-	    method : 'POST',
-	};
+// Your Google Cloud Platform project ID
+const projectId = 'pic2cal';
 
-	// do the POST call
-	var reqPost = https.request(optionspost, function(res1) {
+// Instantiates a client
+const language = Language({
+  projectId: projectId
+});
 
-	    res1.on('data', function(OCRResponse) {
-	        imageToText(OCRResponse, res);
-	    });
-	});
+	//var key = 'AIzaSyD0qmIEyByT-RzF-mu4arUZOutGaozpjEk';
+
+	//var url = 'https://language.googleapis.com/v1/documents:analyzeEntities?key=' + key;
+	
+// The text to analyze
+const text2 = 'Hello, world!';
+
+// Detects the sentiment of the text
+language.detectSentiment(text2)
+  .then((results) => {
+    const sentiment = results[0];
+
+    console.log(`Text: ${text}`);
+    console.log(`Sentiment score: ${sentiment.score}`);
+    console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+  })
+  .catch((err) => {
+    console.error('ERROR:', err);
+  });
 }

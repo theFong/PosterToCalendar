@@ -3,7 +3,7 @@ var multer  =   require('multer');
 var app         =   express();
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, './PhotoTmpStore');
+    callback(null, './photos');
   },
   filename: function (req, file, callback) {
     callback(null, file.fieldname + '-' + Date.now());
@@ -21,7 +21,8 @@ app.post('/api/photo',function(req,res){
           console.log(err);
             return res.end("Error uploading file.");
         }
-        res.end("File is uploaded");
+        res.end("Uploaded.");
+        console.log(req.file.path);
     });
 });
 

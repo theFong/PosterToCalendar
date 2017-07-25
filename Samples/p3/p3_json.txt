@@ -1,0 +1,253 @@
+{
+
+  "language": "en",
+
+  "textAngle": 0.0,
+
+  "orientation": "Up",
+
+  "regions": [
+
+    {
+
+      "boundingBox": "37,113,217,277",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "66,113,184,15",
+
+          "words": [
+
+            {
+
+              "boundingBox": "66,113,85,15",
+
+              "text": "SUMMER"
+
+            },
+
+            {
+
+              "boundingBox": "155,113,95,15",
+
+              "text": "WEEKEND"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "37,219,18,26",
+
+          "words": [
+
+            {
+
+              "boundingBox": "37,219,18,26",
+
+              "text": "s"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "94,222,135,33",
+
+          "words": [
+
+            {
+
+              "boundingBox": "94,222,135,33",
+
+              "text": "PARTY"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "63,260,191,21",
+
+          "words": [
+
+            {
+
+              "boundingBox": "63,260,81,21",
+
+              "text": "—YFREE"
+
+            },
+
+            {
+
+              "boundingBox": "152,260,102,21",
+
+              "text": "DRINKS*—"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "64,299,175,18",
+
+          "words": [
+
+            {
+
+              "boundingBox": "64,299,2,18",
+
+              "text": "i"
+
+            },
+
+            {
+
+              "boundingBox": "73,304,82,13",
+
+              "text": "SATURDAY"
+
+            },
+
+            {
+
+              "boundingBox": "158,304,37,13",
+
+              "text": "JULY"
+
+            },
+
+            {
+
+              "boundingBox": "199,304,40,13",
+
+              "text": "25TH"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "63,339,122,12",
+
+          "words": [
+
+            {
+
+              "boundingBox": "63,339,122,12",
+
+              "text": "DOORSOPENAT8:30PM"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "131,382,55,8",
+
+          "words": [
+
+            {
+
+              "boundingBox": "131,382,25,8",
+
+              "text": "CLUB"
+
+            },
+
+            {
+
+              "boundingBox": "158,382,28,7",
+
+              "text": "NAME"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "boundingBox": "56,454,123,9",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "56,454,123,9",
+
+          "words": [
+
+            {
+
+              "boundingBox": "56,454,123,9",
+
+              "text": "www.shutterstock.com"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "boundingBox": "195,454,65,9",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "195,454,65,9",
+
+          "words": [
+
+            {
+
+              "boundingBox": "195,454,65,9",
+
+              "text": "146493920"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}

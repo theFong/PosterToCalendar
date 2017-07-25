@@ -1,0 +1,285 @@
+{
+
+  "language": "en",
+
+  "textAngle": 0.0,
+
+  "orientation": "Up",
+
+  "regions": [
+
+    {
+
+      "boundingBox": "410,97,582,1239",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "563,97,276,50",
+
+          "words": [
+
+            {
+
+              "boundingBox": "563,97,276,50",
+
+              "text": "LIBERTY"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "564,163,276,15",
+
+          "words": [
+
+            {
+
+              "boundingBox": "564,163,276,15",
+
+              "text": "UNIVERSITY."
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "687,195,142,17",
+
+          "words": [
+
+            {
+
+              "boundingBox": "687,195,69,17",
+
+              "text": "Career"
+
+            },
+
+            {
+
+              "boundingBox": "760,195,69,17",
+
+              "text": "Center"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "410,380,581,146",
+
+          "words": [
+
+            {
+
+              "boundingBox": "410,380,581,146",
+
+              "text": "CAMP"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "432,544,560,184",
+
+          "words": [
+
+            {
+
+              "boundingBox": "432,544,560,184",
+
+              "text": "FAIR"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "440,752,552,192",
+
+          "words": [
+
+            {
+
+              "boundingBox": "440,752,552,192",
+
+              "text": "2012"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "493,1013,472,32",
+
+          "words": [
+
+            {
+
+              "boundingBox": "493,1013,171,32",
+
+              "text": "9AM-5PM"
+
+            },
+
+            {
+
+              "boundingBox": "722,1015,144,30",
+
+              "text": "DEMOSS"
+
+            },
+
+            {
+
+              "boundingBox": "878,1015,87,30",
+
+              "text": "HALL"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "492,1091,471,21",
+
+          "words": [
+
+            {
+
+              "boundingBox": "492,1091,69,20",
+
+              "text": "TALK"
+
+            },
+
+            {
+
+              "boundingBox": "571,1091,97,21",
+
+              "text": "ONSITE"
+
+            },
+
+            {
+
+              "boundingBox": "677,1091,37,21",
+
+              "text": "TO"
+
+            },
+
+            {
+
+              "boundingBox": "723,1091,94,21",
+
+              "text": "CAMPS"
+
+            },
+
+            {
+
+              "boundingBox": "826,1091,137,21",
+
+              "text": "OFFERING"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "569,1124,317,21",
+
+          "words": [
+
+            {
+
+              "boundingBox": "569,1124,114,21",
+
+              "text": "SUMMER"
+
+            },
+
+            {
+
+              "boundingBox": "693,1124,193,21",
+
+              "text": "EMPLOYMENT!"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "672,1248,113,40",
+
+          "words": [
+
+            {
+
+              "boundingBox": "672,1248,113,40",
+
+              "text": "FEB."
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "676,1293,88,43",
+
+          "words": [
+
+            {
+
+              "boundingBox": "676,1293,88,43",
+
+              "text": "7-8"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}

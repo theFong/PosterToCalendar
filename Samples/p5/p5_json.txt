@@ -1,0 +1,337 @@
+{
+
+  "language": "en",
+
+  "textAngle": 0.0,
+
+  "orientation": "Up",
+
+  "regions": [
+
+    {
+
+      "boundingBox": "97,159,294,216",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "193,159,148,21",
+
+          "words": [
+
+            {
+
+              "boundingBox": "193,159,44,21",
+
+              "text": "ABC"
+
+            },
+
+            {
+
+              "boundingBox": "251,159,90,21",
+
+              "text": "SCHOOL"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "225,184,68,13",
+
+          "words": [
+
+            {
+
+              "boundingBox": "225,184,68,13",
+
+              "text": "Presents"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "174,238,217,61",
+
+          "words": [
+
+            {
+
+              "boundingBox": "174,238,217,61",
+
+              "text": "ELCOME"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "97,332,289,43",
+
+          "words": [
+
+            {
+
+              "boundingBox": "97,332,98,43",
+
+              "text": "sa"
+
+            },
+
+            {
+
+              "boundingBox": "209,350,15,7",
+
+              "text": "-"
+
+            },
+
+            {
+
+              "boundingBox": "238,333,148,41",
+
+              "text": "*AIR"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "boundingBox": "68,385,274,280",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "172,385,141,43",
+
+          "words": [
+
+            {
+
+              "boundingBox": "172,385,141,43",
+
+              "text": "2015"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "68,467,249,56",
+
+          "words": [
+
+            {
+
+              "boundingBox": "68,467,249,56",
+
+              "text": "UWULYZ"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "77,529,265,17",
+
+          "words": [
+
+            {
+
+              "boundingBox": "77,535,28,10",
+
+              "text": "mm"
+
+            },
+
+            {
+
+              "boundingBox": "109,531,32,14",
+
+              "text": "3:00"
+
+            },
+
+            {
+
+              "boundingBox": "144,532,16,13",
+
+              "text": "to"
+
+            },
+
+            {
+
+              "boundingBox": "164,531,32,14",
+
+              "text": "6:00"
+
+            },
+
+            {
+
+              "boundingBox": "201,531,21,14",
+
+              "text": "PM"
+
+            },
+
+            {
+
+              "boundingBox": "232,529,110,17",
+
+              "text": "atUniuerity'sC"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "140,617,150,14",
+
+          "words": [
+
+            {
+
+              "boundingBox": "140,617,150,14",
+
+              "text": "•wW.yourwebsite.c"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "140,636,174,15",
+
+          "words": [
+
+            {
+
+              "boundingBox": "140,636,140,15",
+
+              "text": "Itaot@yourwebsit"
+
+            },
+
+            {
+
+              "boundingBox": "299,639,15,8",
+
+              "text": "co"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "149,654,146,11",
+
+          "words": [
+
+            {
+
+              "boundingBox": "149,654,44,11",
+
+              "text": "\"hone"
+
+            },
+
+            {
+
+              "boundingBox": "203,654,23,11",
+
+              "text": "123"
+
+            },
+
+            {
+
+              "boundingBox": "235,654,41,11",
+
+              "text": "4567"
+
+            },
+
+            {
+
+              "boundingBox": "289,654,6,11",
+
+              "text": "9"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "boundingBox": "366,533,8,13",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "366,533,8,13",
+
+          "words": [
+
+            {
+
+              "boundingBox": "366,533,8,13",
+
+              "text": "p"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}

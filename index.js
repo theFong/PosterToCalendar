@@ -1,5 +1,6 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
+var Sherlock = require('sherlockjs');
 var app = express();
 var removeChars = ['"','='];
 var textInImage = "";
@@ -131,20 +132,11 @@ function imageToText (jsonString, res) {
     textInImage = textInImage.replace(/\s\s+/g, ' ');
     textInImage = toTitleCase(textInImage);
 
-    setMonth(textInImage);
-
     console.log(eventDate);
     console.log(textInImage);
 
-    var objToJson = { };
-
-    objToJson.day = eventDate.day;
-    objToJson.month = eventDate.month;
-    objToJson.year = eventDate.year;
-
-    objToJson.response = textInImage;
-
-    res.send(JSON.stringify(objToJson));
+    var result = parse(textInImage);
+    res.send(JSON.stringify(result));
 
      // response for API
      //res.send(textInImage);
@@ -159,73 +151,20 @@ function toTitleCase(str)
       });
 }
 
+function parse(text) {
+  var eventData = {};
+  //shelock
+  sherlockedText = Sherlock.parse(text)
+  eventData.title = sherlockedText.eventTitle
+  eventData.startDate = sherlockedText.startDate
+  eventData.endDate = sherlockedText.endDate
+  eventData.isAllDay = sherlockedText.isAllDay
 
-function setMonth (str) {
-  var re = /Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?/g;
-  var m;
-  var firstIndex, lastIndex;
-   
-  while ((m = re.exec(str)) !== null) {
-    firstIndex = m.index;
-    lastIndex = re.lastIndex
-      if (m.index === re.lastIndex) {
-          re.lastIndex++;
-      }
-      dateStr += m[0];
-      if (isNaN(m[0])) {
-        eventDate.month = getMonth (m[0]);
-    }
-    else {
-      eventDate.month = m[0];
-    }
-    //removeFromText(m[0], "");
-    //textInImage = textInImage.replace (m[0], "");
-  }
-  findDayAndYear(textInImage.substring(lastIndex));
-  removeFromText(dateStr, "");
-  console.log("EventDate.Month: " + eventDate.month);
-  textInImage = textInImage.replace(/\s\s+/g, ' ');
-  eventTitle = textInImage;
+  //google api for location
+    // goog stuff
+
+  return eventData;
 }
-
-function removeFromText (oldTxt, newTxt) {
-  textInImage = textInImage.replace (oldTxt, newTxt);
-}
-
-function getMonth (month) {
-  var prefixMonth = month.substring(0,3);
-  return new Date(prefixMonth + '-1-01').getMonth()+1;
-}
-
-function findDayAndYear (str) {
-  if (str.substring(0,1)) {
-    str = str.substring(1);
-  }
-  var restOfString = str.split(" ");
-  if (isNaN(restOfString[0])) {
-    return false;
-  }
-  if (!isNaN(restOfString[0])) {
-    if (restOfString[0].length < 3 && restOfString[0].length > 0) {
-      eventDate.day = restOfString[0];
-    }
-    else if (restOfString[0].length != 0) {
-      eventDate.year = restOfString[0];
-    }
-    dateStr += " " + restOfString[0];
-  }
-  if (!isNaN(restOfString[1])) {
-    if (!restOfString[1].length > 4) {
-      eventDate.year = restOfString[1];
-    }
-    dateStr += " " + restOfString[1];
-  }
-  console.log("potential day: " + eventDate.day);
-  console.log("potential year: " + eventDate.year);
-  //GET YEAR
-  //new Date().getFullYear();
-}
-
 
 
 app.get('/Pic2Cal', function (req, res) {

@@ -1,0 +1,285 @@
+{
+
+  "language": "en",
+
+  "textAngle": 0.0,
+
+  "orientation": "Up",
+
+  "regions": [
+
+    {
+
+      "boundingBox": "46,44,296,495",
+
+      "lines": [
+
+        {
+
+          "boundingBox": "90,44,207,9",
+
+          "words": [
+
+            {
+
+              "boundingBox": "90,44,62,9",
+
+              "text": "CEORCE"
+
+            },
+
+            {
+
+              "boundingBox": "162,44,45,9",
+
+              "text": "DAVIS"
+
+            },
+
+            {
+
+              "boundingBox": "216,44,81,9",
+
+              "text": "MEMORIAL"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "71,90,251,42",
+
+          "words": [
+
+            {
+
+              "boundingBox": "71,90,251,42",
+
+              "text": "ANNUAL"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "51,145,291,43",
+
+          "words": [
+
+            {
+
+              "boundingBox": "51,145,159,43",
+
+              "text": "GOLF"
+
+            },
+
+            {
+
+              "boundingBox": "222,145,120,43",
+
+              "text": "CUP"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "87,227,218,21",
+
+          "words": [
+
+            {
+
+              "boundingBox": "87,227,50,20",
+
+              "text": "June"
+
+            },
+
+            {
+
+              "boundingBox": "145,227,17,21",
+
+              "text": "7,"
+
+            },
+
+            {
+
+              "boundingBox": "171,227,50,18",
+
+              "text": "2018"
+
+            },
+
+            {
+
+              "boundingBox": "230,232,6,7",
+
+              "text": "•"
+
+            },
+
+            {
+
+              "boundingBox": "245,227,12,18",
+
+              "text": "8"
+
+            },
+
+            {
+
+              "boundingBox": "265,227,40,17",
+
+              "text": "AM"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "112,263,160,11",
+
+          "words": [
+
+            {
+
+              "boundingBox": "112,263,75,11",
+
+              "text": "Ceorgetown"
+
+            },
+
+            {
+
+              "boundingBox": "192,263,48,11",
+
+              "text": "Country"
+
+            },
+
+            {
+
+              "boundingBox": "244,263,28,9",
+
+              "text": "Club"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "93,279,198,10",
+
+          "words": [
+
+            {
+
+              "boundingBox": "93,279,16,9",
+
+              "text": "121"
+
+            },
+
+            {
+
+              "boundingBox": "115,279,70,9",
+
+              "text": "Beechwood"
+
+            },
+
+            {
+
+              "boundingBox": "191,280,30,9",
+
+              "text": "Lane,"
+
+            },
+
+            {
+
+              "boundingBox": "226,280,43,9",
+
+              "text": "Garner,"
+
+            },
+
+            {
+
+              "boundingBox": "274,280,17,8",
+
+              "text": "NC"
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          "boundingBox": "46,532,290,7",
+
+          "words": [
+
+            {
+
+              "boundingBox": "46,532,22,7",
+
+              "text": "FOR"
+
+            },
+
+            {
+
+              "boundingBox": "76,532,32,7",
+
+              "text": "MORE"
+
+            },
+
+            {
+
+              "boundingBox": "116,532,31,7",
+
+              "text": "INFO:"
+
+            },
+
+            {
+
+              "boundingBox": "154,532,182,7",
+
+              "text": "CEORCEOAVISMEMORIALOÄG"
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}

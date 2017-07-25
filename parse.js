@@ -23,7 +23,8 @@ function sherlocker(text, eventData) {
 }
 
 function getLocation(text){
-	//goog stuff
+
+
 	const Language = require('@google-cloud/language');
 	const projectId = 'pic2cal';
 	const language = Language({
@@ -31,5 +32,22 @@ function getLocation(text){
     	keyFilename: './keys.json'
 	});
 
-	
+		const document = language.document({ content: text });
+
+
+	document.detectEntities()
+  .then((results) => {
+    const entities = results[1].entities;
+
+    console.log('Entities:');
+    entities.forEach((entity) => {
+     
+      if (entity.type == "LOCATION") {
+      	 return entity.name;
+      }
+    });
+  })
+  .catch((err) => {
+    console.error('ERROR:', err);
+  });
 }

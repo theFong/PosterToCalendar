@@ -174,3 +174,22 @@ app.get('/Pic2Cal', function (req, res) {
 app.get('/Pic2Calendar', function (req, res) {
 	res.send("HI");
 })
+
+
+
+app.get('/Pic2CalendarSample', function (req, res) {
+
+  var startDate = new Date().toISOString();
+  var event = new Calendar('Sample Event Name', startDate, startDate, 'Redmond', 'This is the sample description. The event is going to be epic!')
+  a = JSON.stringify(event);
+  res.send(a);
+})
+
+var Calendar = function (name, startDate , endDate, location , description ) {
+    this.Name = name;
+    this.StartDate = startDate;
+    this.EndDate = endDate;
+    this.Location = location;
+    this.Description = description; 
+};
+

@@ -1,19 +1,18 @@
 var Sherlock = require('sherlockjs');
 
-
 module.exports = {
 	getEventData: function (text) {
 		var eventData = {};
 		eventData = sherlocker(text, eventData);
 
-		//call luis or google
+		eventData.location = getLocation(text);
 
 		return eventData;
 	}
 }
 
 function sherlocker(text, eventData) {
-	//shelock
+	//sherlock
 	sherlockedText = Sherlock.parse(text)
 	eventData.title = sherlockedText.eventTitle
 	eventData.startDate = sherlockedText.startDate
@@ -23,3 +22,6 @@ function sherlocker(text, eventData) {
 	return eventData;
 }
 
+function getLocation(text){
+	//goog stuff
+}

@@ -158,11 +158,16 @@ app.get('/Pic2Cal', function (req, res) {
 })
 
 app.get('/eventParse', function(req, res) {
-  res.send(JSON.stringify(parse.getEventData(req.query.text)));
+ // res.send(JSON.stringify(parse.getEventData(req.query.text, res)));
+ parse.getEventData("Foo Fighters Supercrass - The Bear July 10 2008 Rose Garden Arena Portland Or", res);
 })
 
 app.get('/Pic2Calendar', function (req, res) {
 	res.send("HI");
+})
+
+app.get('/Location', function (req, res) {
+  res.send("HI");
 })
 
 

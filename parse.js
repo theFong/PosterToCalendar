@@ -1,53 +1,66 @@
 var Sherlock = require('sherlockjs');
 
 module.exports = {
-	getEventData: function (text) {
-		var eventData = {};
-		eventData = sherlocker(text, eventData);
 
-		eventData.location = getLocation(text);
+	getEventData: function (text, res) {
+		var eventData = {
+			'title' : "",
+			'startDate' : '',
+			'endDate' : '',
+			'isAllDay' : '',
+			'location' : ''
+		};
 
+		sherlocker(text, res, eventData).then(getLocation(text, res, eventData).then(function(ics) { res.send(JSON.stringify(ics))}));
 		return eventData;
 	}
 }
 
-function sherlocker(text, eventData) {
-	//sherlock
-	sherlockedText = Sherlock.parse(text)
-	eventData.title = sherlockedText.eventTitle
-	eventData.startDate = sherlockedText.startDate
-	eventData.endDate = sherlockedText.endDate
-	eventData.isAllDay = sherlockedText.isAllDay
+var sherlocker =  function(text, res,  eventData) {
+	return new Promise(function(resolve,reject){
+		//sherlock
+		sherlockedText = Sherlock.parse(text)
+		eventData.title = sherlockedText.eventTitle
+		eventData.startDate = sherlockedText.startDate
+		eventData.endDate = sherlockedText.endDate
+		eventData.isAllDay = sherlockedText.isAllDay
 
-	return eventData;
+		resolve();
+	});
 }
 
-function getLocation(text){
+var getLocation = function(text, res, ics) {
+	return new Promise(function(resolve,reject){
 
-
-	const Language = require('@google-cloud/language');
-	const projectId = 'pic2cal';
-	const language = Language({
- 		projectId: projectId,
-    	keyFilename: './keys.json'
-	});
+		const Language = require('@google-cloud/language');
+		const projectId = 'pic2cal';
+		const language = Language({
+	 		projectId: projectId,
+	    	keyFilename: './keys.json'
+		});
 
 		const document = language.document({ content: text });
 
+		document.detectEntities().then((results) => {
+		    const entities = results[1].entities;
+		    entities.forEach((entity) => {
+		     		console.log(entity.name);
 
-	document.detectEntities()
-  .then((results) => {
-    const entities = results[1].entities;
+		      if (entity.type == "LOCATION") {
+		      	 ics.location = entity.name;
+			     console.log(ics);
+		      	 resolve(ics);
 
-    console.log('Entities:');
-    entities.forEach((entity) => {
-     
-      if (entity.type == "LOCATION") {
-      	 return entity.name;
-      }
-    });
-  })
-  .catch((err) => {
-    console.error('ERROR:', err);
-  });
+		      }
+		    });
+
+		  })
+		  .catch((err) => {
+
+		  	console.log(err)
+		  	reject();
+		  });
+	});
+
 }
+

@@ -1,3 +1,23 @@
+ // var express =   require("express");
+var multer  =   require('multer');
+ // var app         =   express();
+ var storage =   multer.diskStorage({
+   destination: function (req, file, callback) {
+     callback(null, './');
+   },
+   filename: function (req, file, callback) {
+     callback(null, file.fieldname + '-' + Date.now());
+   }
+ });
+ var upload = multer({ storage : storage}).single('userPhoto');
+
+// app.get('/', function(request, response) {
+  // response.render('pages/index')
+// });
+
+
+
+
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var parse = require('./parse');
@@ -144,12 +164,13 @@ function imageToText (jsonString, res) {
      waiting = false;
 }
 
+
 function toTitleCase(str)
 {
-    return str.replace(/\w\S*/g, function(txt)
-      {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      });
+   return str.replace(/\w\S*/g, function(txt)
+     {
+       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+     });
 }
 
 
@@ -180,6 +201,26 @@ app.get('/Pic2CalendarSample', function (req, res) {
   res.send(a);
 })
 
+app.post('/api/photo',function(req,res){
+     upload(req,res,function(err) {
+         if(err) {
+           console.log(err);
+             return res.end("Error uploading file.");
+         }
+		  var startDate = new Date().toISOString();
+		  var event = new Calendar('Sample Event Name', startDate, startDate, 'Redmond', 'This is the sample description. The event is going to be epic!')
+		  a = JSON.stringify(event);
+		  res.send(a);
+          //res.end("Uploaded.");
+          //console.log(req.file.path);
+     });
+});
+
+app.listen(3000,function(){
+    console.log("Working on port 3000");
+});
+
+
 var Calendar = function (name, startDate , endDate, location , description ) {
     this.Name = name;
     this.StartDate = startDate;
@@ -187,4 +228,3 @@ var Calendar = function (name, startDate , endDate, location , description ) {
     this.Location = location;
     this.Description = description; 
 };
-

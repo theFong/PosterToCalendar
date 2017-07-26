@@ -156,12 +156,15 @@ function imageToText (jsonString, res) {
     // console.log(eventDate);
     // console.log(textInImage);
 
-    var result = parse.getEventData(textInImage);
-    res.send(JSON.stringify(result));
+    parse.getEventData(textInImage).then(function(ics) { 
+       res.send(JSON.stringify(ics));
+       waiting = false;
+
+    });
+   
 
      // response for API
      //res.send(textInImage);
-     waiting = false;
 }
 
 

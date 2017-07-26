@@ -3,6 +3,8 @@ var Sherlock = require('sherlockjs');
 module.exports = {
 
 	getEventData: function (text, res) {
+
+	return new Promise(function(resolve,reject){
 		var eventData = {
 			'title' : "",
 			'startDate' : '',
@@ -11,8 +13,8 @@ module.exports = {
 			'location' : ''
 		};
 
-		sherlocker(text, res, eventData).then(getLocation(text, res, eventData).then(function(ics) { res.send(JSON.stringify(ics))}));
-		return eventData;
+		sherlocker(text, res, eventData).then(getLocation(text, res, eventData).then(function(ics) { resolve(ics)}));
+	});
 	}
 }
 

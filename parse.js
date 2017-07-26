@@ -5,6 +5,7 @@ module.exports = {
 	getEventData: function (text, res) {
 
 	return new Promise(function(resolve,reject){
+
 		var eventData = {
 			'title' : "",
 			'startDate' : '',
@@ -13,7 +14,7 @@ module.exports = {
 			'location' : ''
 		};
 
-		sherlocker(text, res, eventData).then(getLocation(text, res, eventData).then(function(ics) { resolve(ics)}));
+		sherlocker(text, res, eventData).then(getLocation(text, res, eventData).then(function(ics) {resolve(ics);}));
 	});
 	}
 }
@@ -44,10 +45,10 @@ var getLocation = function(text, res, ics) {
 		const document = language.document({ content: text });
 
 		document.detectEntities().then((results) => {
+			console.log(results);
 		    const entities = results[1].entities;
 		    entities.forEach((entity) => {
-		     		console.log(entity.name);
-
+		    
 		      if (entity.type == "LOCATION") {
 		      	 ics.location = entity.name;
 			     console.log(ics);
@@ -55,13 +56,15 @@ var getLocation = function(text, res, ics) {
 
 		      }
 		    });
-
+		    console.log("No Location Found");
+		    resolve(ics);
 		  })
 		  .catch((err) => {
-
-		  	console.log(err)
-		  	reject();
+		  	console.log("hi");
+		  	console.log(err);
 		  });
+
+		  
 	});
 
 }

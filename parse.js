@@ -64,3 +64,16 @@ var getLocation = function(text, res, ics) {
 
 }
 
+// LUIS
+var request = require('request');
+query = " ";
+url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/4e86cd0f-7ebe-49dd-8151-d43d45dc8a6c?subscription-key=42f18c757e974d84b1701dfa34e2a366&timezoneOffset=0&verbose=true&q=' + query;
+
+request(url, function (error, response, body) {
+  
+  console.log('error:', error); 
+  console.log('statusCode:', response && response.statusCode); 
+  console.log('body:', body); 
+  // parse out date times here
+});
+

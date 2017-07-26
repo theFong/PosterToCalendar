@@ -57,10 +57,10 @@ var getLocation = function(text, res, ics) {
 		      }
 		    });
 		    console.log("No Location Found");
+		    ics.location = "Unknown";
 		    resolve(ics);
 		  })
 		  .catch((err) => {
-		  	console.log("hi");
 		  	console.log(err);
 		  });
 

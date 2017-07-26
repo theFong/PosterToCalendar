@@ -1,28 +1,21 @@
- // var express =   require("express");
-var multer  =   require('multer');
- // var app         =   express();
- var storage =   multer.diskStorage({
-   destination: function (req, file, callback) {
-     callback(null, './');
-   },
-   filename: function (req, file, callback) {
-     callback(null, file.fieldname + '-' + Date.now());
-   }
- });
- var upload = multer({ storage : storage}).single('userPhoto');
-
-// app.get('/', function(request, response) {
-  // response.render('pages/index')
-// });
-
-
-
-
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var parse = require('./parse');
 var url = require('url');
 var app = express();
+
+//for post image to nodejs server
+var multer  =   require('multer');
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './photos');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now());
+  }
+});
+var upload = multer({ storage : storage}).single('userPhoto');
+
 var removeChars = ['"','='];
 var textInImage = "";
 var eventDate = {
@@ -51,6 +44,25 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
+app.get('/test',function(req,res){
+      res.sendFile(__dirname + "/index.html");
+});
+
+//POST for photos from users
+app.post('/api/photo',function(req,res){
+    upload(req,res,function(err) {
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded!");
+        console.log(req.file.path);
+        var localImgPath = "https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg";
+        //https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg
+
+        contentRequest(res, localImgPath);
+    });
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
@@ -77,11 +89,11 @@ app.get('/db', function (request, response) {
   });
 })
 
-function contentRequest(res)
+function contentRequest(res, imgPath)
 {
 	// create the JSON object with URL of image
 	jsonObject = JSON.stringify({
-		"url" : "http://www.atlanticposters.com/images/foofighters_SP0650.jpg",});
+		"url" : imgPath,});
 
 	// HTTP protocol
 	var https = require('https');
@@ -103,7 +115,7 @@ function contentRequest(res)
 	// do the POST call
 	var reqPost = https.request(optionspost, function(res1) {
 
-	 
+
 	    res1.on('data', function(OCRResponse) {
 	        imageToText(OCRResponse, res);
 	    });
@@ -115,6 +127,31 @@ function contentRequest(res)
 	reqPost.on('error', function(e) {
 	    console.error(e);
 	});
+}
+
+function getTitle(json){
+   //str.split(' 
+     var region = json["regions"];
+
+    var title = { 'size' : 0, 'words' : ""};
+    for(var regionKey in region) {
+        var regionObjects = region[regionKey];
+        for(var lineKey in regionObjects) {
+          if (lineKey == "lines") {
+            line = regionObjects[lineKey];
+            for (var keyInLine in line) {
+              var lineObjects = line[keyInLine];
+              for (var wordKey in lineObjects) {
+                if (wordKey == "boundingBox") {
+                  var box = lineObjects[wordKey];
+                  console.log(box);
+                  
+                }
+            }
+          }
+        }
+    }
+}
 }
 
 function imageToText (jsonString, res) {
@@ -129,6 +166,8 @@ function imageToText (jsonString, res) {
       res.send(JSON.stringify(failed));
       return;
     }
+
+    getTitle(json);
 
     for(var regionKey in region) {
         var regionObjects = region[regionKey];
@@ -145,12 +184,15 @@ function imageToText (jsonString, res) {
                                 textInImage += wordObjects["text"] + " ";
                             }
                         }
-                    } 
+                    }
                 }
             }
         }
     }
-    
+
+
+
+
     textInImage = textInImage.replace(/[^\x20-\x7F]/g, "");
     for (var i = 0; i < removeChars.length; i++) {
        textInImage = textInImage.replace(removeChars[i], "");
@@ -160,12 +202,18 @@ function imageToText (jsonString, res) {
 
     textInImage = textInImage.replace(/\s\s+/g, ' ');
     textInImage = toTitleCase(textInImage);
+    // console.log(eventDate);
+    console.log("textInImage: ", textInImage);
+
 
     parse.getEventData(textInImage, res).then(function(ics) { 
-       res.send(JSON.stringify(ics));
-       waiting = false;
 
+      console.log("Sending back to frontend");
+      console.log(ics);
+      res.send(JSON.stringify(ics));
+      waiting = false;
     });
+
 
 }
 
@@ -231,5 +279,5 @@ var Calendar = function (name, startDate , endDate, location , description ) {
     this.StartDate = startDate;
     this.EndDate = endDate;
     this.Location = location;
-    this.Description = description; 
+    this.Description = description;
 };

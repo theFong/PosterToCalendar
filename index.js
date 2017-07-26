@@ -95,6 +95,7 @@ function contentRequest(res, imgPath)
 	jsonObject = JSON.stringify({
 		"url" : imgPath,});
 
+
 	// HTTP protocol
 	var https = require('https');
 
@@ -129,10 +130,37 @@ function contentRequest(res, imgPath)
 	});
 }
 
+function getTitle(json){
+   //str.split(' 
+     var region = json["regions"];
+
+    var title = { 'size' : 0, 'words' : ""};
+    for(var regionKey in region) {
+        var regionObjects = region[regionKey];
+        for(var lineKey in regionObjects) {
+          if (lineKey == "lines") {
+            line = regionObjects[lineKey];
+            for (var keyInLine in line) {
+              var lineObjects = line[keyInLine];
+              for (var wordKey in lineObjects) {
+                if (wordKey == "boundingBox") {
+                  var box = lineObjects[wordKey];
+                  console.log(box);
+                  
+                }
+            }
+          }
+        }
+    }
+}
+}
+
 function imageToText (jsonString, res) {
     var json = JSON.parse(jsonString, 'utf8');
     var region = json["regions"];
     textInImage = "";
+
+    getTitle(json);
 
     for(var regionKey in region) {
         var regionObjects = region[regionKey];
@@ -155,6 +183,9 @@ function imageToText (jsonString, res) {
         }
     }
 
+
+
+
     textInImage = textInImage.replace(/[^\x20-\x7F]/g, "");
     for (var i = 0; i < removeChars.length; i++) {
        textInImage = textInImage.replace(removeChars[i], "");
@@ -168,9 +199,13 @@ function imageToText (jsonString, res) {
     // console.log(eventDate);
     console.log("textInImage: ", textInImage);
 
-    parse.getEventData(textInImage, res).then(function(ics) {
-       res.send(JSON.stringify(ics));
-       waiting = false;
+
+    parse.getEventData(textInImage, res).then(function(ics) { 
+
+      console.log("Sending back to frontend");
+      console.log(ics);
+      res.send(JSON.stringify(ics));
+      waiting = false;
     });
 
 

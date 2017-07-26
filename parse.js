@@ -27,8 +27,9 @@ var sherlocker =  function(text, res,  eventData) {
 		eventData.startDate = sherlockedText.startDate
 		eventData.endDate = sherlockedText.endDate
 		eventData.isAllDay = sherlockedText.isAllDay
-
-		resolve();
+		console.log("Sherlocker got");
+		console.log(eventData);
+		resolve(eventData);
 	});
 }
 
@@ -48,7 +49,8 @@ var getLocation = function(text, res, ics) {
 		    const entities = results[1].entities;
 		    var locationStringNames = [];
 		    entities.forEach((entity) => {
-		    
+		    console.log("Entity: ");
+		    console.log(entity);
 		      if (entity.type == "LOCATION") {
 		      	locationStringNames.push(" "+entity.name);
 		      }

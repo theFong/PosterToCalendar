@@ -93,7 +93,7 @@ function contentRequest(res, imgPath)
 {
 	// create the JSON object with URL of image
 	jsonObject = JSON.stringify({
-		"url" : imgPath,});
+		"url" : "https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg"});
 
 	// HTTP protocol
 	var https = require('https');
@@ -133,6 +133,7 @@ function getTitle(json){
    //str.split(' 
      var region = json["regions"];
 
+     //console.log(json);
     var title = { 'size' : 0, 'words' : ""};
     for(var regionKey in region) {
         var regionObjects = region[regionKey];
@@ -142,17 +143,45 @@ function getTitle(json){
             for (var keyInLine in line) {
               var lineObjects = line[keyInLine];
               for (var wordKey in lineObjects) {
+
                 if (wordKey == "boundingBox") {
                   var box = lineObjects[wordKey];
                   console.log(box);
-                  
+                  box = box.split(",");
+                  var height = parseInt(box[box.length-1]);
+
+                  if(Math.abs(title.size - height) < 5){
+
+
+                    var words = lineObjects["words"];
+                      for (var keyInWord in words) {
+                          var wordObjects = words[keyInWord];
+                          title.words += wordObjects["text"] + " ";
+                      }
+                  } else if (title.size < height){
+                    title.size = height;
+                    title.words = "";
+                    var words = lineObjects["words"];
+                      for (var keyInWord in words) {
+                          var wordObjects = words[keyInWord];
+                          title.words += wordObjects["text"] + " ";
+                      }
+
+                  }
+
+                  }
+
+
                 }
             }
           }
         }
     }
+
+    console.log(title);
+    return title.words;
 }
-}
+
 
 function imageToText (jsonString, res) {
     var json = JSON.parse(jsonString, 'utf8');
@@ -167,7 +196,6 @@ function imageToText (jsonString, res) {
       return;
     }
 
-    getTitle(json);
 
     for(var regionKey in region) {
         var regionObjects = region[regionKey];
@@ -205,8 +233,9 @@ function imageToText (jsonString, res) {
     // console.log(eventDate);
     console.log("textInImage: ", textInImage);
 
+    title = getTitle(json);
 
-    parse.getEventData(textInImage, res).then(function(ics) { 
+    parse.getEventData(textInImage, res, title).then(function(ics) { 
 
       console.log("Sending back to frontend");
       console.log(ics);

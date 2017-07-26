@@ -2,12 +2,12 @@ var Sherlock = require('sherlockjs');
 
 module.exports = {
 
-	getEventData: function (text, res) {
+	getEventData: function (text, res, title) {
 
 	return new Promise(function(resolve,reject){
 
 		var eventData = {
-			'title' : "",
+			'title' : title,
 			'startDate' : '',
 			'endDate' : '',
 			'isAllDay' : '',
@@ -23,7 +23,7 @@ var sherlocker =  function(text, res,  eventData) {
 	return new Promise(function(resolve,reject){
 		//sherlock
 		sherlockedText = Sherlock.parse(text)
-		eventData.title = sherlockedText.eventTitle
+		//eventData.title = sherlockedText.eventTitle
 		eventData.startDate = sherlockedText.startDate
 		eventData.endDate = sherlockedText.endDate
 		eventData.isAllDay = sherlockedText.isAllDay
@@ -49,8 +49,6 @@ var getLocation = function(text, res, ics) {
 		    const entities = results[1].entities;
 		    var locationStringNames = [];
 		    entities.forEach((entity) => {
-		    console.log("Entity: ");
-		    console.log(entity);
 		      if (entity.type == "LOCATION") {
 		      	locationStringNames.push(" "+entity.name);
 		      }

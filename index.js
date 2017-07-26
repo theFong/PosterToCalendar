@@ -1,15 +1,15 @@
  // var express =   require("express");
-//var multer  =   require('multer');
+var multer  =   require('multer');
  // var app         =   express();
-// var storage =   multer.diskStorage({
-  // destination: function (req, file, callback) {
-    // callback(null, './');
-  // },
-  // filename: function (req, file, callback) {
-    // callback(null, file.fieldname + '-' + Date.now());
-  // }
-// });
-// var upload = multer({ storage : storage}).single('userPhoto');
+ var storage =   multer.diskStorage({
+   destination: function (req, file, callback) {
+     callback(null, './');
+   },
+   filename: function (req, file, callback) {
+     callback(null, file.fieldname + '-' + Date.now());
+   }
+ });
+ var upload = multer({ storage : storage}).single('userPhoto');
 
 // app.get('/', function(request, response) {
   // response.render('pages/index')
@@ -197,18 +197,18 @@ app.get('/Pic2CalendarSample', function (req, res) {
 })
 
 app.post('/api/photo',function(req,res){
-    // upload(req,res,function(err) {
-        // if(err) {
-          // console.log(err);
-            // return res.end("Error uploading file.");
-        // }
+     upload(req,res,function(err) {
+         if(err) {
+           console.log(err);
+             return res.end("Error uploading file.");
+         }
 		  var startDate = new Date().toISOString();
 		  var event = new Calendar('Sample Event Name', startDate, startDate, 'Redmond', 'This is the sample description. The event is going to be epic!')
 		  a = JSON.stringify(event);
 		  res.send(a);
-        //res.end("Uploaded.");
-        //console.log(req.file.path);
-    // });
+          //res.end("Uploaded.");
+          //console.log(req.file.path);
+     });
 });
 
 app.listen(3000,function(){

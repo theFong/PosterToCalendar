@@ -45,26 +45,20 @@ var getLocation = function(text, res, ics) {
 		const document = language.document({ content: text });
 
 		document.detectEntities().then((results) => {
-			console.log(results);
 		    const entities = results[1].entities;
+		    var locationStringNames = [];
 		    entities.forEach((entity) => {
 		    
 		      if (entity.type == "LOCATION") {
-		      	 ics.location = entity.name;
-			     console.log(ics);
-		      	 resolve(ics);
-
+		      	locationStringNames.push(" "+entity.name);
 		      }
 		    });
-		    console.log("No Location Found");
-		    ics.location = "Unknown";
+		    ics.location = locationStringNames.toString();
 		    resolve(ics);
 		  })
 		  .catch((err) => {
 		  	console.log(err);
 		  });
-
-		  
 	});
 
 }

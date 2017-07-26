@@ -81,7 +81,7 @@ function contentRequest(res)
 {
 	// create the JSON object with URL of image
 	jsonObject = JSON.stringify({
-		"url" : "http://www.atlanticposters.com/images/foofighters_SP0650.jpg",});
+		"url" : "https://about.canva.com/wp-content/uploads/sites/3/2015/01/school_poster.png",});
 
 	// HTTP protocol
 	var https = require('https');
@@ -156,7 +156,7 @@ function imageToText (jsonString, res) {
     // console.log(eventDate);
     // console.log(textInImage);
 
-    parse.getEventData(textInImage).then(function(ics) { 
+    parse.getEventData(textInImage, res).then(function(ics) { 
        res.send(JSON.stringify(ics));
        waiting = false;
 

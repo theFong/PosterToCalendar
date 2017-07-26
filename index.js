@@ -81,7 +81,7 @@ function contentRequest(res)
 {
 	// create the JSON object with URL of image
 	jsonObject = JSON.stringify({
-		"url" : "https://about.canva.com/wp-content/uploads/sites/3/2015/01/school_poster.png",});
+		"url" : "http://www.atlanticposters.com/images/foofighters_SP0650.jpg",});
 
 	// HTTP protocol
 	var https = require('https');
@@ -120,7 +120,15 @@ function contentRequest(res)
 function imageToText (jsonString, res) {
     var json = JSON.parse(jsonString, 'utf8');
     var region = json["regions"];
+
     textInImage = "";
+    
+    if (json.orientation === 'NotDetected') {
+      failed = {};
+      failed.error = "NotDetected";
+      res.send(JSON.stringify(failed));
+      return;
+    }
 
     for(var regionKey in region) {
         var regionObjects = region[regionKey];
@@ -142,7 +150,7 @@ function imageToText (jsonString, res) {
             }
         }
     }
-
+    
     textInImage = textInImage.replace(/[^\x20-\x7F]/g, "");
     for (var i = 0; i < removeChars.length; i++) {
        textInImage = textInImage.replace(removeChars[i], "");
@@ -153,18 +161,12 @@ function imageToText (jsonString, res) {
     textInImage = textInImage.replace(/\s\s+/g, ' ');
     textInImage = toTitleCase(textInImage);
 
-    // console.log(eventDate);
-    // console.log(textInImage);
-
     parse.getEventData(textInImage, res).then(function(ics) { 
        res.send(JSON.stringify(ics));
        waiting = false;
 
     });
-   
 
-     // response for API
-     //res.send(textInImage);
 }
 
 

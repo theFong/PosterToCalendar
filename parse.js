@@ -53,7 +53,7 @@ var getLocation = function(text, res, ics) {
 		      	locationStringNames.push(" "+entity.name);
 		      }
 		    });
-		    ics.location = locationStringNames.toString();
+		    ics.location = locationStringNames.length > 0 ? locationStringNames.toString() : "" ;
 		    resolve(ics);
 		  })
 		  .catch((err) => {

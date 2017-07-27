@@ -26,7 +26,12 @@ var sherlocker =  function(text, res,  eventData) {
 		//eventData.title = sherlockedText.eventTitle
 		eventData.startDate = sherlockedText.startDate
 		eventData.endDate = sherlockedText.endDate
-		eventData.isAllDay = sherlockedText.isAllDay
+		if(eventData.startDate == null || eventData.endDate == null){
+			eventData.isAllDay = true;
+		} else{
+			eventData.isAllDay	= sherlockedText.isAllDay
+		}
+			 
 		console.log("Sherlocker got");
 		console.log(eventData);
 		resolve(eventData);

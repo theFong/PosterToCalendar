@@ -82,7 +82,7 @@ app.get('/db', function(request, response) {
 function contentRequest(res, imgPath) {
     // create the JSON object with URL of image
     jsonObject = JSON.stringify({
-        "url": "https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg"
+        "url": imgPath
     });
 
     // HTTP protocol

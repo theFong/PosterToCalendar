@@ -28,7 +28,7 @@ var dateStr = "";
 var eventTitle = "";
 
 
-app.use(express.bodyParser());
+//app.use(express.bodyParser());
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -51,9 +51,9 @@ app.get('/test', function(req, res) {
 
 //POST for photos from users
 app.post('/api/photo', function(req, res) {
-    console.log(req);
-    console.log(req.body);
-    console.log(req.url);
+    //console.log("11111: \n", req);
+    //console.log(""req.body);
+    //console.log("2222222222:\n", req.url);
     contentRequest(res, req.body.url);
 });
 

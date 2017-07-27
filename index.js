@@ -50,7 +50,7 @@ app.get('/test', function(req, res) {
 
 //POST for photos from users
 app.post('/api/photo', function(req, res) {
-    contentRequest(res, req.file.path);
+    contentRequest(res, "https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg");
 });
 
 app.listen(app.get('port'), function() {
@@ -120,7 +120,7 @@ function contentRequest(res, imgPath) {
 }
 
 function getTitle(json) {
-    //str.split(' 
+    //str.split('
     var region = json["regions"];
 
     //console.log(json);

@@ -28,6 +28,7 @@ var dateStr = "";
 var eventTitle = "";
 
 
+app.use(express.bodyParser());
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));

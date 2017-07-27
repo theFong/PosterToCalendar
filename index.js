@@ -50,7 +50,10 @@ app.get('/test', function(req, res) {
 
 //POST for photos from users
 app.post('/api/photo', function(req, res) {
-    contentRequest(res, "https://marketplace.canva.com/MAB1BT5b_Fs/1/0/thumbnail_large/canva-coffee-fundraising-event-poster-MAB1BT5b_Fs.jpg");
+    console.log(req);
+    console.log(req.body);
+    console.log(req.url);
+    contentRequest(res, req.body.url);
 });
 
 app.listen(app.get('port'), function() {

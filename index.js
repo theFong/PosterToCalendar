@@ -4,6 +4,10 @@ var parse = require('./parse');
 var url = require('url');
 var app = express();
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+
 //for post image to nodejs server
 var multer = require('multer');
 var storage = multer.diskStorage({
@@ -54,6 +58,8 @@ app.post('/api/photo', function(req, res) {
     //console.log("11111: \n", req);
     //console.log(""req.body);
     //console.log("2222222222:\n", req.url);
+    console.log("2222222222:\n", req.body);
+
     contentRequest(res, req.body.url);
 });
 
